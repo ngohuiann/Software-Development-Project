@@ -16,5 +16,5 @@ progress[value]::-webkit-progress-value {
 	   -webkit-linear-gradient(left, #09c, #f44);
 
     border-radius: 2px; 
-    background-size: 35px 20px, 100% 100%, 100% 100%;
+    background-size: 35px 50px, 100% 100%, 100% 100%;
 }
