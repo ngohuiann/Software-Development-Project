@@ -1,5 +1,5 @@
 <?php 
-    include('Conf/init.php');
+    include('../Conf/init.php');
 ?>
 <html>
 <head>
