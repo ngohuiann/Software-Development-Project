@@ -1,0 +1,54 @@
+*{
+	box-sizing: border-box;
+}
+
+.my-calender{
+    width: 80%;
+    margin: 0 auto;
+}
+
+table{
+    border-right: 1px solid black;
+	border-top: 1px solid black;
+}
+
+th{
+    font-size: 24px;
+    padding: 0;
+    width: 150px;
+	background-color: #5C6BC0;
+	color: white;
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;
+}
+
+td{
+    width: 150px;
+	height: 100px;
+	position: relative;
+	padding: 0;
+	border-bottom:1px solid black;
+	border-left: 1px solid black;
+}
+
+.days:hover{
+	background-color: #C5CAE9;
+}
+
+.day-num{
+	background-color: #9FA8DA;
+	margin: 0;
+	color: white;
+	text-align: center;
+	width: 30px;
+	font-size: 18px;
+	font-weight: bold;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 1px solid #C5CAE9;
+}
+
+.no-dates{
+	background-color: #EDE7F6;
+}
