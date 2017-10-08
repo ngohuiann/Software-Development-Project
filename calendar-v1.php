@@ -1,9 +1,6 @@
 <html>
-    <head> 
-        <link rel="stylesheet" type="text/css" href="CSS/calendar-v1.css" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    </head>
 <?php 
+	include('includes/context-menu.html');
 	$current_date = date('d');
 	$current_month = date('m');
 	$current_year = date('Y');
@@ -12,6 +9,13 @@
 	$days_of_week = 1;
 	$day_counter = 0;
 ?>
+    <head> 
+        <link rel="stylesheet" type="text/css" href="CSS/calendar-v1.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="Javascript/context-menu.js"></script>
+
+    </head>
+
     <body>
         <table class="my-calender" id="the-node" cellspacing="0" cellpadding="0">
 			<tr>
@@ -35,7 +39,7 @@ endfor;
 
 for($day_num = 1; $day_num <= $days_in_month; $day_num++):
 	echo '<td class="days"';
-	echo 'id="';
+	echo 'data-id="';
 	echo $day_num;
 	echo '"><span class="context-menu-one btn btn-neutral">';
 		/* add in the day number */
@@ -60,17 +64,10 @@ endif;
 ?>
 			</tr>
         </table>
-		<script>
-			var d = new Date();
-			var day = d.getDate();
-			document.getElementById(day).style.backgroundColor  = '#E8EAF6'
-			</script>
-			
-			<script>
-			$( "td" ).contextmenu(function() {
-  alert( "Handler for .contextmenu() called." );
-});
-		</script>
-
+	<script>
+		var d = new Date();
+		var day = d.getDate();
+		document.getElementById(day).style.backgroundColor  = '#E8EAF6'
+	</script>
     </body>
 </html>

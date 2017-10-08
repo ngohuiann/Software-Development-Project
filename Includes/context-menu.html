@@ -1,0 +1,102 @@
+<html>
+<head> 
+	<link rel="stylesheet" type="text/css" href="/Software-Development-Project/CSS/context-menu.css" />
+	<link rel="stylesheet" type="text/css" href="/Software-Development-Project/CSS/event.css" />
+</head>
+<body>
+
+<nav id="context-menu" class="context-menu">
+    <ul class="context-menu__items">
+		<li class="context-menu__item">
+			<a href="/Software-Development-Project/includes/add-event.html" class="context-menu__link" data-action="Add" id="add-btn"><i class="fa fa-eye"></i> Add Task</a>
+		</li>
+		<li class="context-menu__item">
+			<a href="#" class="context-menu__link" data-action="Edit" id="edit-btn"><i class="fa fa-edit"></i> Edit Task</a>
+		</li>
+		<li class="context-menu__item">
+			<a href="#" class="context-menu__link" data-action="Delete" id="del-btn"><i class="fa fa-times"></i> Delete Task</a>
+		</li>
+    </ul>
+</nav>
+
+<!-- Add Event Modal Box -->
+	<div class="add-event" id="add-event">
+		<div class="event-content">
+			<b>Add Task</b>
+			<div class="form">
+			<form action="" method="post">
+				<input type="text" name="username" class="username" placeholder="Username" /> 
+				<input type="password" name="password" class="password" placeholder="Password" /> 
+				<a href="#" class="link">Forget Password?</a><br />
+				<input type="submit" name="submit" class="submit" value="Submit" />
+			</form>
+			</div>
+		</div>
+	</div>
+
+<!-- Edit Event Modal Box -->
+<div class="edit-event" id="edit-event">
+	<div class="event-content">
+		<b>Edit Task</b>
+		<div class="form">
+		<form action="" method="post">
+			<input type="text" name="username" class="username" placeholder="Username" /> 
+			<input type="password" name="password" class="password" placeholder="Password" /> 
+			<a href="#" class="link">Forget Password?</a><br />
+			<input type="submit" name="submit" class="submit" value="Submit" />
+		</form>
+		</div>
+	</div>
+</div>
+
+<!-- Delete Event Modal Box -->
+<div class="del-event" id="del-event">
+	<div class="event-content">
+		<b>Delete Task</b>
+		<div class="form">
+		<form action="" method="post">
+			<input type="text" name="username" class="username" placeholder="Username" /> 
+			<input type="password" name="password" class="password" placeholder="Password" /> 
+			<a href="#" class="link">Forget Password?</a><br />
+			<input type="submit" name="submit" class="submit" value="Submit" />
+		</form>
+		</div>
+	</div>
+</div>
+	
+	<script>
+	<!-- Add Event Modal Box -->
+	var add_modal = document.getElementById('add-event');
+	var add_btn = document.getElementById("add-btn");
+	add_btn.onclick = function() {
+		add_modal.style.display = "block";
+	}
+
+	
+	<!-- Edit Event Modal Box -->
+	var edit_modal = document.getElementById('edit-event');
+	var edit_btn = document.getElementById("edit-btn");
+	edit_btn.onclick = function() {
+		edit_modal.style.display = "block";
+	}
+
+	
+	<!-- Delete Event Modal Box -->
+	var del_modal = document.getElementById('del-event');
+	var del_btn = document.getElementById("del-btn");
+	del_btn.onclick = function() {
+		del_modal.style.display = "block";
+	}
+	
+	window.onclick = function(event) {
+    if (event.target == del_modal) {
+        del_modal.style.display = "none";
+		}
+	} else if (event.target == add_modal) {
+        add_modal.style.display = "none";
+		} else (event.target == edit_modal) {
+        edit_modal.style.display = "none";
+		}
+	</script>
+</body>
+</html>
