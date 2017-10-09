@@ -39,7 +39,7 @@ endfor;
 
 for($day_num = 1; $day_num <= $days_in_month; $day_num++):
 	echo '<td class="days"';
-	echo 'data-id="';
+	echo 'id="';
 	echo $day_num;
 	echo '"><span class="context-menu-one btn btn-neutral">';
 		/* add in the day number */
