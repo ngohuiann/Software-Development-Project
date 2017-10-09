@@ -1,11 +1,11 @@
 progress{
-    -webkit-appearance: progress-bar;
+    ---webkit-appearance: progress-bar;
     height: 50px;
     width: 80%;
     margin: 0 auto;
 }
 
-progress[value]::-webkit-progress-value {
+/* progress[value]::-webkit-progress-value {
   background-image:
 	   -webkit-linear-gradient(-45deg, 
 	                           transparent 33%, rgba(0, 0, 0, .1) 33%, 
@@ -17,4 +17,4 @@ progress[value]::-webkit-progress-value {
 
     border-radius: 2px; 
     background-size: 35px 50px, 100% 100%, 100% 100%;
-}
+} */
