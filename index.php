@@ -3,9 +3,14 @@
 include('Conf/init.php');
 
 if (isset($_POST['submit'])) {
+session_start();
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+$password = mysqli_real_escape_string($conn,$_POST['password']); 
+$hashedpwd = password_hash($password, PASSWORD_DEFAULT);
+
 $rowcount=0;
 $username=mysqli_real_escape_string($conn,$_POST['username']); 
-$sql1 = "SELECT * FROM user WHERE username='$username'";
+$sql1 = "SELECT * FROM user WHERE Username='$username'";
 
 if(!mysqli_query($conn,$sql1))
 {
@@ -28,22 +33,20 @@ if($rowcount==1)
 	window.location.href='###';
 	</script>";
 }else{
-	include("/kyro/core/database/connect.php");
-	$sql="INSERT INTO user (username,password,fullname,DOB,email,gender,IC) VALUES ('$_POST[username]','$_POST[password]','$_POST[fullname]','$_POST[DOB]','$_POST[email]','$_POST[gender]','$_POST[IC]')";
-	
+	$sql="INSERT INTO user (Username,Password,Fullname,DOB,Email,Gender) VALUES ('$_POST[username]','$hashedpwd','$_POST[fullname]','$_POST[DOB]','$_POST[email]','$_POST[gender]')";
 	if(!mysqli_query($conn,$sql))
 		{
 		die('Error:' .mysqli_error($conn));
 		}
 		echo "<script>
 	alert('Register Successful!');
-	window.location.href='####';
+	window.location.href='test.html';
 	</script>";
 }
-	
-mysqli_close($conn);
+}
+}
 
- ?>
+?>
 <head>
     <link rel="stylesheet" type="text/css" href="CSS/index.css" />
 </head>
@@ -56,41 +59,41 @@ mysqli_close($conn);
 			<div id="regModal" class="modal">
 			  <!-- Modal content -->
 				<div class="modal-content">
-					<form id="regForm" action="">
+					<form class="regForm" action="" method="post">
 					<!-- One "tab" for each step in the form: -->
 					<div class="tab">
 					<img src="Images/reg-icon.png" style="text-align: center; margin: 0; width: 100px;" />
 					<h2>Sign Up</h2>
 					Username:
-					  <input placeholder="Username..." name="username" type="text" oninput="this.className = ''">
+					  <input placeholder="Username..." name="username" type="text" required="required"/>
 					  Password: 
-					  <input placeholder="Password..." name="password" type="password" oninput="this.className = ''">
+					  <input placeholder="Password..." name="password" type="password" required="required"/>
 					  <a href="#" style="float: left; margin-top: 30px;">Already own an account?</a>
+					  <input type="button" value="Next" id="nextBtn" onclick="nextPrev(1)" style="overflow:auto; margin-top: 30px; float: right;" ></input>
 					</div>
 
 					<div class="tab"><h3>2. Basic Info</h3>
 					Full Name
-					  <input placeholder="Full name..." name="fullname" oninput="this.className = ''">
-					Gender
-					  <input placeholder="Phone..." name="gender" oninput="this.className = ''">
+					  <input placeholder="Full name..." name="fullname" required="required"/>
+					Gender<br />
+						<select name="gender" required="required">
+							<option value="">Please select</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						</select><br />
 					DOB
-					  <input placeholder="Phone..." name="DOB" oninput="this.className = ''">
-					IC Number
-					  <input placeholder="IC number..." name="IC" oninput="this.className = ''">
+					  <input name="DOB" type="date" />
 					Email Address
-					  <input placeholder="Email..." name="email" type="email" oninput="this.className = ''">
+					  <input placeholder="Email..." name="email" type="email" required="required"/>
+					  
+					  <input type="button" id="prevBtn" value="Previous" onclick="nextPrev(-1)" style="overflow:auto; margin-top: 30px; float: right;" ></input>
+					  <input type="button" id="nextBtn" value="Submit" onclick="nextPrev(1)" style="overflow:auto; margin-top: 30px; float: right;" ></input>
 					</div>
 
 					<div class="tab"><h3>3. Upload a profile picture</h3>
 						<img src="Images/default-profile.png" style="width: 150px; padding: 20px; margin: 15px; border-radius: 50%; border: 1px solid black;" />
-					  <input type="file" name="" oninput="this.className = ''">
-					</div>
-
-					<div style="overflow:auto; margin-top: 30px;">
-					  <div style="float:right;">
-						<button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-						<button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-					  </div>
+					  <input type="file" name="" >
+					  <input type="submit" name="submit" value="Skip" style="overflow:auto; margin-top: 30px; float: right;" />
 					</div>
 
 					<!-- Circles which indicates the steps of the form: -->
@@ -135,18 +138,7 @@ mysqli_close($conn);
 	  var x = document.getElementsByClassName("tab");
 	  x[n].style.display = "block";
 	  // ... and fix the Previous/Next buttons:
-	  if ((n == 0) || (n == (x.length - 1))) {
-		document.getElementById("prevBtn").style.display = "none";
-	  } else {
-		document.getElementById("prevBtn").style.display = "inline";
-	  }
-	  if (n == (x.length - 2)) {
-		document.getElementById("nextBtn").innerHTML = "Submit";
-	  } else if (n == (x.length -1)){
-		document.getElementById("nextBtn").innerHTML = "Skip";
-	  } else {
-		document.getElementById("nextBtn").innerHTML = "Next";
-	  }
+
 	  // ... and run a function that displays the correct step indicator:
 	  fixStepIndicator(n)
 	}
@@ -155,42 +147,22 @@ mysqli_close($conn);
 	  // This function will figure out which tab to display
 	  var x = document.getElementsByClassName("tab");
 	  // Exit the function if any field in the current tab is invalid:
-	  if (n == 1 && !validateForm()) return false;
+
 	  // Hide the current tab:
-	  x[currentTab].style.display = "none";
+		x[currentTab].style.display = "none";
 	  // Increase or decrease the current tab by 1:
 	  currentTab = currentTab + n;
 	  // if you have reached the end of the form... :
-	  if (currentTab >= x.length) {
-		//...the form gets submitted:
-		document.getElementById("regForm").submit();
-		return false;
-	  }
+
 	  // Otherwise, display the correct tab:
 	  showTab(currentTab);
 	}
 
-	function validateForm() {
-	  // This function deals with validation of the form fields
-	  var x, y, i, valid = true;
-	  x = document.getElementsByClassName("tab");
-	  y = x[currentTab].getElementsByTagName("input");
-	  // A loop that checks every input field in the current tab:
-	  for (i = 0; i < y.length; i++) {
-		// If a field is empty...
-		if (y[i].value == "") {
-		  // add an "invalid" class to the field:
-		  y[i].className += " invalid";
-		  // and set the current valid status to false:
-		  valid = false;
-		}
-	  }
+
 	  // If the valid status is true, mark the step as finished and valid:
-	  if (valid) {
+
 		document.getElementsByClassName("step")[currentTab].className += " finish";
-	  }
-	  return valid; // return the valid status
-	}
+
 
 	function fixStepIndicator(n) {
 	  // This function removes the "active" class of all steps...
@@ -200,7 +172,7 @@ mysqli_close($conn);
 	  }
 	  //... and adds the "active" class on the current step:
 	  x[n].className += " active";
-	}
+	}	
 	</script>
 </body>
 </html>
