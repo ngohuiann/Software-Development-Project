@@ -5,10 +5,9 @@ include('Conf/init.php');
 if (isset($_POST['submit'])) {
 session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-$target_dir = "Images/ProfilePicture";
+$target_dir = "Images/ProfilePicture/";
 $password = mysqli_real_escape_string($conn,$_POST['password']); 
 $hashedpwd = password_hash($password, PASSWORD_DEFAULT);
-$check = getimagesize($_FILES["profile_pic"]["tmp_name"]);
 $rowcount=0;
 $username=mysqli_real_escape_string($conn,$_POST['username']); 
 $sql1 = "SELECT * FROM user WHERE Username='$username'";
@@ -29,11 +28,13 @@ if($rowcount==1)
 	window.location.href='###';
 	</script>";
 }else{
-	if($check !== false) {
+	$allowedExts = array("gif", "jpeg", "jpg", "png");
+	$tmp = explode(".", $_FILES["profile_pic"]["name"]);
+	$extension = end($tmp);
 		$target_file = $target_dir . basename($_FILES["profile_pic"]["name"]);
 		$uploadOk = 1;
-		$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-		$file_name = basename( $_FILES["profile_pic"]["name"]);
+		move_uploaded_file($_FILES["profile_pic"]["tmp_name"], "Images/ProfilePicture/".$username.".".$extension);
+		$file_name = $username.".".$extension;
 		$sql2="INSERT INTO user (Username,Password,Fullname,DOB,Email,Gender,ProfilePicture) VALUES ('$_POST[username]','$hashedpwd','$_POST[fullname]','$_POST[DOB]','$_POST[email]','$_POST[gender]','$file_name')";
 		
 		if(!mysqli_query($conn,$sql2))
@@ -41,7 +42,7 @@ if($rowcount==1)
 		die('Error:' .mysqli_error($conn));
 		}
 	
-	}else{
+}}else{
 	$sql="INSERT INTO user (Username,Password,Fullname,DOB,Email,Gender) VALUES ('$_POST[username]','$hashedpwd','$_POST[fullname]','$_POST[DOB]','$_POST[email]','$_POST[gender]')";
 		if(!mysqli_query($conn,$sql))
 		{
@@ -53,7 +54,7 @@ if($rowcount==1)
 	</script>";
 }
 }
-}}
+
 
 ?>
 <head>
@@ -96,7 +97,7 @@ if($rowcount==1)
 			<div id="regModal" class="modal">
 			  <!-- Modal content -->
 				<div class="modal-content">
-					<form id="regForm" action="" method="post">
+					<form id="regForm" action="" method="post" enctype="multipart/form-data">
 					<!-- One "tab" for each step in the form: -->
 					<div class="tab">
 					<img src="Images/reg-icon.png" style="text-align: center; margin: 0; width: 100px;" />
