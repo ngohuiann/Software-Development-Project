@@ -96,7 +96,7 @@ if($rowcount==1)
 			<div id="regModal" class="modal">
 			  <!-- Modal content -->
 				<div class="modal-content">
-					<form id="regForm" action="">
+					<form id="regForm" action="" method="post">
 					<!-- One "tab" for each step in the form: -->
 					<div class="tab">
 					<img src="Images/reg-icon.png" style="text-align: center; margin: 0; width: 100px;" />
@@ -211,5 +211,7 @@ if($rowcount==1)
 	  //... and adds the "active" class on the current step:
 	  x[n].className += " active";
 	}	
+	</script>
+
 </body>
 </html>
