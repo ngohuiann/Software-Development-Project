@@ -1,0 +1,650 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+{margin:0;}
+
+.topnav {
+  overflow: hidden;
+  background-color:white;
+  padding:5px;
+  width: 100%;
+  position: fixed;
+  height: 70px;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black  ;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 17px;
+}
+#courselink{
+    padding: 5px 16px;
+    color:darkcyan;
+    margin-top:13px;
+    /margin-left: 450px;
+    float:right;
+}
+
+#courselink:hover{
+    color: #2b303b;
+    text-decoration: underline;
+    text-decoration-color: #2b303b;
+}
+
+#loginlink{
+    background-color: #2b303b;
+    border: 2px solid #2b303b;
+    border-radius: 4px;
+    color:lightgrey;
+    padding: 3px 16px;
+    margin-top:13px;
+    margin-left: 6px;
+    margin-right:15px;
+    float:right;    
+}
+
+#loginlink:hover{
+    color: #2b303b;
+    border: 2px solid darkcyan;
+    background: white;
+    /background-color: darkcyan;
+    /color:white;
+    /border:1px solid white;
+}
+
+.searchbar{
+    float:left;
+    margin-top:10px;
+    margin-left: 10px;
+    /margin-right: 31px;
+}
+
+.searchbar .box{
+  overflow:hidden;
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.searchbar .box input[type=text]{
+  text-align:left;
+  width: 228px;
+  height: 38px;
+  /border: 1px solid #eee;
+  border: none;
+  border-bottom: 1px solid darkcyan;   font-size: 12pt;
+  float: left;
+  outline: none;
+  padding-left: 28px;
+  /-webkit-border-radius: 5px;
+  /-moz-border-radius: 5px;
+  /border-radius: 5px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.searchbar input::-webkit-input-placeholder {
+    text-align:left;
+    color:#65737e;
+}
+.searchbar input:-moz-placeholder {
+    text-align:left;
+    color:#65737e;
+}
+.searchbar input:-ms-input-placeholder {
+    text-align:left;
+    color:#65737e;
+}
+
+.searchbar .box .icon{
+  /-webkit-border-top-right-radius: 5px;
+  /-webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  /border-top-right-radius: 5px;
+  /border-bottom-right-radius: 5px;
+ 
+  border: none;
+  border-bottom: 1px solid darkcyan;
+  /border: 1px solid #eee;
+  background-color: white;
+  height: 38px;
+  width: 40px;
+  color: #2b303b;
+  opacity: 1;
+  font-size: 10pt;
+  margin-left: -40px;
+ 
+  -webkit-transition: all .55s ease;
+  -moz-transition: all .55s ease;
+  -ms-transition: all .55s ease;
+  -o-transition: all .55s ease;
+  transition: all .55s ease;
+}
+
+.box input[type=text]:focus{
+    border-bottom: 1px solid grey;
+    color:black;
+    -webkit-transition: all .55s ease;
+    -moz-transition: all .55s ease;
+    -ms-transition: all .55s ease;
+    -o-transition: all .55s ease;
+    transition: all .55s ease;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color:white;
+  padding:5px;
+  width: 100%;
+  position: fixed;
+  height: 70px;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black  ;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 17px;
+}
+#courselink{
+    padding: 5px 16px;
+    color:darkcyan;
+    margin-top:13px;
+    float:right;
+}
+
+#courselink:hover{
+    color: #2b303b;
+    text-decoration: underline;
+    text-decoration-color: #2b303b;
+}
+
+#loginlink{
+    background-color: #2b303b;
+    border: 2px solid #2b303b;
+    border-radius: 4px;
+    color:lightgrey;
+    padding: 3px 16px;
+    margin-top:13px;
+    margin-left: 6px;
+    margin-right:20px;
+    float:right;    
+}
+
+#loginlink:hover{
+    color: #2b303b;
+    border: 2px solid darkcyan;
+    background: white;
+    /background-color: darkcyan;
+    /color:white;
+    /border:1px solid white;
+    -webkit-transition: all .35s ease;
+    -moz-transition: all .35s ease;
+    -ms-transition: all .35s ease;
+    -o-transition: all .35s ease;
+    transition: all .35s ease;
+}
+
+.searchbar{
+    float:left;
+    margin-top:10px;
+    margin-left: 10px;
+    /margin-right: 31px;
+}
+
+.searchbar .box{
+  overflow:hidden;
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.searchbar .box input[type=text]{
+  text-align:left;
+  width: 228px;
+  height: 38px;
+  /border: 1px solid #eee;
+  border: none;
+  border-bottom: 1px solid darkcyan;   font-size: 12pt;
+  float: left;
+  outline: none;
+  padding-left: 28px;
+  /-webkit-border-radius: 5px;
+  /-moz-border-radius: 5px;
+  /border-radius: 5px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.searchbar input::-webkit-input-placeholder {
+    text-align:left;
+    color:#65737e;
+}
+.searchbar input:-moz-placeholder {
+    text-align:left;
+    color:#65737e;
+}
+.searchbar input:-ms-input-placeholder {
+    text-align:left;
+    color:#65737e;
+}
+
+.searchbar .box .icon{
+  /-webkit-border-top-right-radius: 5px;
+  /-webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  /border-top-right-radius: 5px;
+  /border-bottom-right-radius: 5px;
+ 
+  border: none;
+  border-bottom: 1px solid darkcyan;
+  /border: 1px solid #eee;
+  background-color: white;
+  height: 38px;
+  width: 40px;
+  color: #2b303b;
+  opacity: 1;
+  font-size: 10pt;
+  margin-left: -40px;
+ 
+  -webkit-transition: all .55s ease;
+  -moz-transition: all .55s ease;
+  -ms-transition: all .55s ease;
+  -o-transition: all .55s ease;
+  transition: all .55s ease;
+}
+
+.box input[type=text]:focus{
+    border-bottom: 1px solid #e2e2e2;
+    color:black;
+    -webkit-transition: all .55s ease;
+    -moz-transition: all .55s ease;
+    -ms-transition: all .55s ease;
+    -o-transition: all .55s ease;
+    transition: all .55s ease;
+}
+
+
+.main-header{
+    width: 100%;
+    height: 570px;
+	padding-top: 70px;
+}
+.animationbg{
+    z-index: -3;
+    position: absolute;
+    background-color: black;
+        #B1C0CB;
+    width:100%;
+    height: 500px;
+}
+.animationbg img{
+    height:500px;
+    width:700px;
+}
+#shadow{
+            z-index: -2;		
+            width:100%;
+			height:500px;
+			background-color:black;
+			opacity:0.35;
+			position: absolute;
+}
+.main{
+    z-index: -1;
+    width: 50%;
+    height: auto;
+    margin-top: 50px;
+    border: 2px solid aliceblue;
+    margin-left:25%;
+}
+
+.main-header h1,h2{
+    text-align: center;
+    margin: 0;
+    padding-top: 40px;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+    color:whitesmoke;
+}
+
+.main h1{
+    font-size: 60px;
+    text-transform: uppercase;
+}
+
+.main button{
+    color: aliceblue;
+    border: 3px solid darkcyan;
+    background: transparent;
+    margin-top: 140px;
+    font-family: 'Overpass Mono', monospace;
+    padding: 4px;
+    font-size: 12pt;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.main button:hover{
+    border: 3px solid lightblue;
+    -webkit-transition: all .55s ease;
+    -moz-transition: all .55s ease;
+    -ms-transition: all .55s ease;
+    -o-transition: all .55s ease;
+    transition: all .55s ease;
+}
+
+.get-start{
+    width: 150px;
+    padding: 3px 5px;
+    font-size: 18px;
+    margin: 30px;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 50px;
+    border: 1px solid #888;
+    width: 35%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#regForm {
+  background-color: #ffffff;
+  font-family: Raleway;
+  padding: 20px;
+  width: 100%;
+  min-width: 300px;
+  margin: 0 auto;
+}
+
+.tab input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+
+.tab {
+  display: none;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+h2{
+	padding: 10px 0 20px 0;	
+}
+
+/* Content subject ---2 */
+.course-desc{
+    height: auto;
+}
+/* Style the tab */
+div.subject-tab {
+    overflow: hidden;
+    background-color: transparent;
+    width: 30%;
+    margin: 0 auto;
+    margin-left: 37.75%;
+    padding-top: 6px;
+}
+
+/* Style the buttons inside the tab */
+div.subject-tab button {
+    /background-color: inherit;
+    /float: left;
+    /border: 2px solid black;
+    /outline: none;
+    /cursor: pointer;
+    /padding: 14px 16px;
+    /margin-right: 40px;
+    /transition: 0.3s;
+    /font-size: 17px;
+    letter-spacing: 0.5px;
+}
+
+.htmltab{
+    background-color: inherit;
+    float: left;
+    /border: 2px solid black;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    margin-right: 46px;
+    transition: 0.3s;
+    font-size: 24px;
+    border:none;   
+    font-family: 'Cuprum', sans-serif;
+}
+
+.csstab{
+    background-color: inherit;
+    float: left;
+    /border: 2px solid orange;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    margin-right: 46px;
+    transition: 0.3s;
+    font-size: 24px;
+    border:none;
+    font-family: 'Cuprum', sans-serif;
+}
+
+.javascripttab{
+    background-color: inherit;
+    float: left;
+    /border: 2px solid green;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    transition: 0.3s;
+    font-size: 24px;
+    border:none;
+    font-family: 'Cuprum', sans-serif;
+}
+
+/* Change background color of buttons on hover */
+div.subject-tab button:hover {
+    /background-color: #ddd;
+    border-bottom: 2px solid darkcyan;
+}
+
+/* Create an active/current tablink class */
+div.subject-tab button.active {
+    /background-color: #ccc;
+    border-bottom: 2px solid red;
+}
+
+/* Style the tab content */
+.subjectcontent {
+    display: none;
+    padding: 6px 12px;
+    /border: 1px solid #ccc;
+    border-top: none;
+}
+.beforefooter{
+    width:100%;
+    height: 200px;
+    background: red;
+}
+
+/*FOOTER*/
+
+footer {
+    background-color: black;
+    width: 100%;
+    height: auto;
+    margin:0 auto;
+    position: relative;
+    margin-bottom:0;
+	color: lightgray;
+}
+
+footer .footer-container {
+    width: 70%;
+    height: auto;
+    margin:auto;
+	overflow:hidden;
+	display:block;
+    border: 2px solid hotpink;
+}
+
+.first-col {
+	display:block;
+    position: relative;
+    float: left;
+    width:15%;
+    height: auto;
+    margin-right:30px;
+	margin-left:15%;
+    padding-top: 15px;
+    border: 2px solid yellow;
+}
+
+.second-col{
+	display:block;
+    position: relative;
+    float: left;
+    width:15%;
+    height: auto;
+    margin-right:15px;
+    padding-top: 15px;
+    border: 2px solid orange;
+}
+.third-col{
+	display:block;
+    position: relative;
+    float: left;
+    width:15%;
+    height: auto;
+    margin-right:40px;
+    padding-top: 15px;
+    border: 2px solid blue;
+}
+
+.fourth-col{
+	display:block;
+    position: relative;
+    float: left;
+    width:20%;
+    height: auto;
+    padding-top: 15px;
+    border: 2px solid green;
+}
+
+footer h1 {
+    font-family: 'Titillium Web', sans-serif;
+	font-size: 22px;
+    text-align: left;
+    font-weight: 500;
+    color: lightgray;
+	margin-bottom:0;
+}
+
+footer ul {
+    letter-spacing:0.5px;
+    font-family: 'Abel', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+footer li {
+	text-align: left;
+	color: white;
+    font-size:14px;
+    list-style-type: none;
+    line-height:2.3;
+}
+
+footer li a {
+	color: white;
+    font-weight: 100;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+footer li a:hover {
+    color: #FFFF00;
+    text-decoration: none;
+}
+
+.copyright {
+    height: 100px;
+    width: 100%;
+	border: 1px solid blueviolet;
+}
+.copyright h5{
+
+	margin-top:50px;
+	text-align: center;
+	font-family: 'Courier';
+	color:#ccc;
+}
+
+
