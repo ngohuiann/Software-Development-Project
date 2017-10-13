@@ -57,18 +57,46 @@ if($rowcount==1)
 
 ?>
 <head>
-    <link rel="stylesheet" type="text/css" href="CSS/index.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/index.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Dosis|Titillium+Web" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 <body>
+	<div class="topnav">
+	  <a style="float:left;" href="index.php">
+		<img src="Images/logo.png" width="220px" height="60px">
+	  </a>
+		<div class="searchbar">
+		<script>
+			document.onkeydown=function(evt){
+				var keyCode = evt ? (evt.which ? evt.which : evt.keyCode) : event.keyCode;
+				if(keyCode == 13)
+				{
+					//your function call here
+					document.test.submit();
+				}
+			}
+		</script>
+		  <div class="box">
+              <form action="search_course.php" method="GET">
+                  <input type="text" name="search_box" placeholder="Search for anything to learn">
+                    <span style="z-index:1;position:absolute;left:238px;margin-top:10px;color:#2b303b"><i class="fa fa-search"></i></span>
+              </form>
+          </div>
+		</div>
+	  <a id="loginlink" href="#contact">Log In</a>
+	  <a id="courselink" href="#about">View All Course</a>
+	</div>
     <div class="main-header">
-        <h1>Learn Anything</h1>
-        <h2>on your schedule</h2>
+        <h1>Learn to Code</h1>
+        <h2>on your schedules</h2>
         <button id="reg-btn" class="get-start">Get Started</button>
 		<!-- The Modal -->
 			<div id="regModal" class="modal">
 			  <!-- Modal content -->
 				<div class="modal-content">
-					<form class="regForm" action="" method="post" enctype="multipart/form-data">
+					<form id="regForm" action="">
 					<!-- One "tab" for each step in the form: -->
 					<div class="tab">
 					<img src="Images/reg-icon.png" style="text-align: center; margin: 0; width: 100px;" />
@@ -120,6 +148,7 @@ if($rowcount==1)
     <div class="course-desc">
     </div>
 	
+        
 	<script>
 	var modal = document.getElementById('regModal');
 
@@ -182,6 +211,5 @@ if($rowcount==1)
 	  //... and adds the "active" class on the current step:
 	  x[n].className += " active";
 	}	
-	</script>
 </body>
 </html>
