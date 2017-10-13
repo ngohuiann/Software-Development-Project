@@ -3,11 +3,144 @@
     box-sizing: border-box;
     text-align: center;
 }
+{margin:0;}
+
+.topnav {
+  overflow: hidden;
+  background-color:white;
+  padding:5px;
+  width: 100%;
+  position: fixed;
+  height: 70px;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black  ;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 17px;
+}
+#courselink{
+    padding: 5px 16px;
+    color:darkcyan;
+    margin-top:13px;
+    /margin-left: 450px;
+    float:right;
+}
+
+#courselink:hover{
+    color: #2b303b;
+    text-decoration: underline;
+    text-decoration-color: #2b303b;
+}
+
+#loginlink{
+    background-color: #2b303b;
+    border: 2px solid #2b303b;
+    border-radius: 4px;
+    color:lightgrey;
+    padding: 3px 16px;
+    margin-top:13px;
+    margin-left: 6px;
+    margin-right:15px;
+    float:right;    
+}
+
+#loginlink:hover{
+    color: #2b303b;
+    border: 2px solid darkcyan;
+    background: white;
+    /background-color: darkcyan;
+    /color:white;
+    /border:1px solid white;
+}
+
+.searchbar{
+    float:left;
+    margin-top:10px;
+    margin-left: 10px;
+    /margin-right: 31px;
+}
+
+.searchbar .box{
+  overflow:hidden;
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.searchbar .box input[type=text]{
+  text-align:left;
+  width: 228px;
+  height: 38px;
+  /border: 1px solid #eee;
+  border: none;
+  border-bottom: 1px solid darkcyan;   font-size: 12pt;
+  float: left;
+  outline: none;
+  padding-left: 28px;
+  /-webkit-border-radius: 5px;
+  /-moz-border-radius: 5px;
+  /border-radius: 5px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.searchbar input::-webkit-input-placeholder {
+    text-align:left;
+    color:#65737e;
+}
+.searchbar input:-moz-placeholder {
+    text-align:left;
+    color:#65737e;
+}
+.searchbar input:-ms-input-placeholder {
+    text-align:left;
+    color:#65737e;
+}
+
+.searchbar .box .icon{
+  /-webkit-border-top-right-radius: 5px;
+  /-webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  /border-top-right-radius: 5px;
+  /border-bottom-right-radius: 5px;
+ 
+  border: none;
+  border-bottom: 1px solid darkcyan;
+  /border: 1px solid #eee;
+  background-color: white;
+  height: 38px;
+  width: 40px;
+  color: #2b303b;
+  opacity: 1;
+  font-size: 10pt;
+  margin-left: -40px;
+ 
+  -webkit-transition: all .55s ease;
+  -moz-transition: all .55s ease;
+  -ms-transition: all .55s ease;
+  -o-transition: all .55s ease;
+  transition: all .55s ease;
+}
+
+.box input[type=text]:focus{
+    border-bottom: 1px solid grey;
+    color:black;
+    -webkit-transition: all .55s ease;
+    -moz-transition: all .55s ease;
+    -ms-transition: all .55s ease;
+    -o-transition: all .55s ease;
+    transition: all .55s ease;
+}
+
 
 .main-header{
     width: 100%;
     height: 400px;
-    background-color: greenyellow;
+    background-color:lightblue;
 }
 
 .main-header h1,h2{
@@ -60,7 +193,7 @@
     cursor: pointer;
 }
 
-.regForm {
+#regForm {
   background-color: #ffffff;
   font-family: Raleway;
   padding: 20px;
@@ -69,7 +202,7 @@
   margin: 0 auto;
 }
 
-input:not([type=button]) {
+.tab.input {
   padding: 10px;
   width: 100%;
   font-size: 17px;
