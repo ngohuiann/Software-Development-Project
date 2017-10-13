@@ -416,3 +416,41 @@ div.subject-tab button.active {
     border: 1px solid #ccc;
     border-top: none;
 }
+
+
+/* content overview --3 */
+
+div.overview-tab {
+    overflow: hidden;
+    background-color: transparent;
+}
+
+/* Style the buttons inside the tab */
+div.overview-tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.overview-tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.overview-tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.overviewcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}

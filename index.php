@@ -144,9 +144,9 @@ if($rowcount==1)
 				</div>
 			</div>
     </div>
-    <div class="course-desc">
+	<div class="course-desc">
 		 <div class="subject-tab">
-			 <button class="subjectlinks" onclick="openSubject(event, 'HTML')" id="defaultOpen">HTML</button>
+			 <button class="subjectlinks" onclick="openSubject(event, 'HTML')">HTML</button>
 			<button class="subjectlinks" onclick="openSubject(event, 'CSS')">CSS</button>
 			<button class="subjectlinks" onclick="openSubject(event, 'Javascript')">Javascript</button>
 		</div>
@@ -166,8 +166,24 @@ if($rowcount==1)
 		    <p>bla.</p>
 		</div> 
     </div>
-	
-    <script src="JS/index-subjectTab.js"></script>
+    <div class="course-overview">
+		 <div class="overview-tab">
+			<button class="overviewlinks" onclick="openOverview(event, 'Top')" id="defaultOpen">Top</button>
+			<button class="overviewlinks" onclick="openOverview(event, 'Most')">Most</button>
+		</div>
+
+		<div id="Top" class="overviewcontent">
+			<h3>Top</h3>
+			<p>bla.</p>
+		</div>
+
+		<div id="CSS" class="overviewcontent">
+		    <h3>Most</h3>
+		    <p>bla.</p>
+		</div>
+    </div>
+	<script src="JS/index-subjectTab.js"></script>
+    <script src="JS/index-overviewTab.js"></script>
 	<script src="JS/index-regModal.js"></script>
 	<script src="JS/index-regForm.js"></script>
 </body>
