@@ -154,7 +154,7 @@ if($rowcount==1)
     <div class="course-desc">
         <div style="background-color:#eee;">
 		 <div class="subject-tab">
-			 <button class="subjectlinks htmltab" onclick="openSubject(event, 'HTML')" id="defaultOpen">HTML</button>
+			 <button class="subjectlinks htmltab" onclick="openSubject(event, 'HTML')">HTML</button>
 			<button class="subjectlinks csstab" onclick="openSubject(event, 'CSS')">CSS</button>
 			<button class="subjectlinks javascripttab" onclick="openSubject(event, 'Javascript')">Javascript</button>
 		 </div>
