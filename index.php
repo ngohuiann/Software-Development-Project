@@ -155,12 +155,12 @@ if($rowcount==1)
 			<button class="overviewlinks" onclick="openOverview(event, 'most')">Most</button>
 		 </div>
 		<div id="top" class="overviewcontent">
-			<h3>HTML</h3>
+			<h3>Top</h3>
 			<p>bla.</p>
 		</div>
 
 		<div id="most" class="overviewcontent">
-		    <h3>CSS</h3>
+		    <h3>Most</h3>
 		    <p>bla.</p>
 		</div> 
     </div>
