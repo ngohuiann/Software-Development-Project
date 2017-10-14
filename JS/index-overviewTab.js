@@ -1,4 +1,4 @@
-function openOverview(evnt, overviewName) {
+function openOverview(event, overviewName) {
     var n, overviewcontent, overviewlinks;
     overviewcontent = document.getElementsByClassName("overviewcontent");
     for (n = 0; n < overviewcontent.length; n++) {
@@ -9,7 +9,7 @@ function openOverview(evnt, overviewName) {
         overviewlinks[n].className = overviewlinks[n].className.replace(" active", "");
     }
     document.getElementById(overviewName).style.display = "block";
-    evnt.currentTarget.className += " active";
+    event.currentTarget.className += " active";
 	}
 
 	// Get the element with id="defaultOpen" and click on it

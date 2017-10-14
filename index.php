@@ -1,7 +1,7 @@
 <html>
 <?php
-//include('Conf/init.php');
-
+include('Conf/init.php');
+include('Includes/header.html');
 if (isset($_POST['submit'])) {
 //session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -64,31 +64,7 @@ if($rowcount==1)
     <link href="https://fonts.googleapis.com/css?family=Cuprum|Oswald|Overpass+Mono|Saira+Extra+Condensed" rel="stylesheet">
 </head>
 <body>
-	<div class="topnav">
-	  <a style="float:left;" href="index.php" title="Homepage">
-		<img src="Images/logo.png" width="220px" height="60px">
-	  </a>
-		<div class="searchbar">
-		<script>
-			document.onkeydown=function(evt){
-				var keyCode = evt ? (evt.which ? evt.which : evt.keyCode) : event.keyCode;
-				if(keyCode == 13)
-				{
-					//your function call here
-					document.test.submit();
-				}
-			}
-		</script>
-		  <div class="box">
-              <form action="search_course.php" method="GET">
-                  <input type="text" name="search_box" placeholder="Search for anything to learn">
-                    <span style="z-index:1;position:absolute;left:238px;margin-top:10px;color:#2b303b"><i class="fa fa-search"></i></span>
-              </form>
-          </div>
-		</div>
-	  <a id="loginlink" href="login.php">Log In</a>
-	  <a id="courselink" href="view_all.php">View All Courses</a>
-	</div>
+	
     <div class="main-header">
         <div class="animationbg">
             <img src="Images/coding1.gif"/>
@@ -173,45 +149,30 @@ if($rowcount==1)
 		    <h3>Javascript</h3>
 		    <p>bla.</p>
 		</div> 
+		
+		<div class="overview-tab">
+			 <button class="overviewlinks" onclick="openOverview(event, 'top')" id="defaultOpen">Top</button>
+			<button class="overviewlinks" onclick="openOverview(event, 'most')">Most</button>
+		 </div>
+		<div id="top" class="overviewcontent">
+			<h3>HTML</h3>
+			<p>bla.</p>
+		</div>
+
+		<div id="most" class="overviewcontent">
+		    <h3>CSS</h3>
+		    <p>bla.</p>
+		</div> 
     </div>
 	<div class="beforefooter">
     </div>
+	<script src="JS/index-overviewTab.js"></script>
     <script src="JS/index-subjectTab.js"></script>
 	<script src="JS/index-regModal.js"></script>
 	<script src="JS/index-regForm.js"></script>
 
-<footer>
-    <div class="footer-container">
-        <div class="first-col">
-            <ul>
-                <h1>Movies</h1>
-                <li><a href="nowshowingmovie.php" target="_blank">Now Showing</a></li>
-                <li><a href="comingsoonmovie.php" target="_blank">Coming Soon</a></li>
-            </ul>
-        </div>
-		<div class="second-col">
-            <ul>
-                <h1>Cinemas</h1>
-                <li><a href="all_cinema.php" target="_blank">All Cinemas</a></li>
-                
-            </ul>
-        </div>
-        <div class="third-col">
-            <ul>
-                <h1>Showtimes</h1>
-                <li><a href="showtimes.php" target="_blank">Search Showtimes</a></li>
-            </ul>
-        </div>
-        <div class="fourth-col">
-            <ul>
-                <h1>About Us</h1>
-                <li><a href="about_us.php" target="_blank">About Pentagon Cinemas</a></li>
-            </ul>
-        </div>
-    </div>
-	<div class="copyright">
-                <h5>All Content Copyright © of Pentagon Cinemas Sdn Bhd 2017. All Rights Reserved</h5>
-            </div>
-</footer>
+<?php
+include("Includes/footer.html");
+?>
 </body>
 </html>
