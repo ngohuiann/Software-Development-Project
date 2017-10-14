@@ -1,9 +1,9 @@
 <html>
 <?php
-include('Conf/init.php');
+//include('Conf/init.php');
 
 if (isset($_POST['submit'])) {
-session_start();
+//session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 $target_dir = "Images/ProfilePicture/";
 $password = mysqli_real_escape_string($conn,$_POST['password']); 
@@ -61,11 +61,11 @@ if($rowcount==1)
     <link rel="stylesheet" type="text/css" href="CSS/index.css"/>
 	<link href="https://fonts.googleapis.com/css?family=Dosis|Titillium+Web" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Cuprum|Oswald|Overpass+Mono|Saira+Extra+Condensed" rel="stylesheet">
 </head>
 <body>
 	<div class="topnav">
-	  <a style="float:left;" href="index.php">
+	  <a style="float:left;" href="index.php" title="Homepage">
 		<img src="Images/logo.png" width="220px" height="60px">
 	  </a>
 		<div class="searchbar">
@@ -86,14 +86,20 @@ if($rowcount==1)
               </form>
           </div>
 		</div>
-	  <a id="loginlink" href="#contact">Log In</a>
-	  <a id="courselink" href="#about">View All Course</a>
+	  <a id="loginlink" href="login.php">Log In</a>
+	  <a id="courselink" href="view_all.php">View All Courses</a>
 	</div>
     <div class="main-header">
-        <h1>Learn to Code</h1>
-        <h2>on your schedules</h2>
-        <button id="reg-btn" class="get-start">Get Started</button>
-		<!-- The Modal -->
+        <div class="animationbg">
+            <img src="Images/coding1.gif"/>
+        </div>
+        <div id="shadow">
+        </div>
+        <div class="main">
+            <h1>Learn to Code</h1>
+            <h2>on your schedules</h2>
+            <button id="reg-btn" class="get-start">Get Started</button>
+            <!-- The Modal -->
 			<div id="regModal" class="modal">
 			  <!-- Modal content -->
 				<div class="modal-content">
@@ -143,14 +149,16 @@ if($rowcount==1)
 					</form> 
 				</div>
 			</div>
+        </div>
     </div>
-	<div class="course-desc">
+    <div class="course-desc">
+        <div style="background-color:#eee;">
 		 <div class="subject-tab">
-			 <button class="subjectlinks" onclick="openSubject(event, 'HTML')">HTML</button>
-			<button class="subjectlinks" onclick="openSubject(event, 'CSS')">CSS</button>
-			<button class="subjectlinks" onclick="openSubject(event, 'Javascript')">Javascript</button>
-		</div>
-
+			 <button class="subjectlinks htmltab" onclick="openSubject(event, 'HTML')" id="defaultOpen">HTML</button>
+			<button class="subjectlinks csstab" onclick="openSubject(event, 'CSS')">CSS</button>
+			<button class="subjectlinks javascripttab" onclick="openSubject(event, 'Javascript')">Javascript</button>
+		 </div>
+        </div>
 		<div id="HTML" class="subjectcontent">
 			<h3>HTML</h3>
 			<p>bla.</p>
@@ -166,25 +174,44 @@ if($rowcount==1)
 		    <p>bla.</p>
 		</div> 
     </div>
-    <div class="course-overview">
-		 <div class="overview-tab">
-			<button class="overviewlinks" onclick="openOverview(event, 'Top')" id="defaultOpen">Top</button>
-			<button class="overviewlinks" onclick="openOverview(event, 'Most')">Most</button>
-		</div>
-
-		<div id="Top" class="overviewcontent">
-			<h3>Top</h3>
-			<p>bla.</p>
-		</div>
-
-		<div id="CSS" class="overviewcontent">
-		    <h3>Most</h3>
-		    <p>bla.</p>
-		</div>
+	<div class="beforefooter">
     </div>
-	<script src="JS/index-subjectTab.js"></script>
-    <script src="JS/index-overviewTab.js"></script>
+    <script src="JS/index-subjectTab.js"></script>
 	<script src="JS/index-regModal.js"></script>
 	<script src="JS/index-regForm.js"></script>
+
+<footer>
+    <div class="footer-container">
+        <div class="first-col">
+            <ul>
+                <h1>Movies</h1>
+                <li><a href="nowshowingmovie.php" target="_blank">Now Showing</a></li>
+                <li><a href="comingsoonmovie.php" target="_blank">Coming Soon</a></li>
+            </ul>
+        </div>
+		<div class="second-col">
+            <ul>
+                <h1>Cinemas</h1>
+                <li><a href="all_cinema.php" target="_blank">All Cinemas</a></li>
+                
+            </ul>
+        </div>
+        <div class="third-col">
+            <ul>
+                <h1>Showtimes</h1>
+                <li><a href="showtimes.php" target="_blank">Search Showtimes</a></li>
+            </ul>
+        </div>
+        <div class="fourth-col">
+            <ul>
+                <h1>About Us</h1>
+                <li><a href="about_us.php" target="_blank">About Pentagon Cinemas</a></li>
+            </ul>
+        </div>
+    </div>
+	<div class="copyright">
+                <h5>All Content Copyright © of Pentagon Cinemas Sdn Bhd 2017. All Rights Reserved</h5>
+            </div>
+</footer>
 </body>
 </html>
