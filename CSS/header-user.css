@@ -1,0 +1,54 @@
+
+.dropdown {
+  float: right;
+  overflow: visible;
+  position: relative;
+}
+
+.dropdown-content {
+	display:none;
+  position: absolute;
+  background-color: #424242;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 9;
+  float: right;
+  padding: 12px;
+  width: 270px;
+  right: 0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content .column {
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  text-align: center;
+  z-index: 10;
+  margin: 1px;
+}
+
+/* Add a grey background color to dropdown links on hover */
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.row a {
+    float: left;
+    width: 48%;
+    height: 100px;
+    margin: 2px;
+}
+
+.column:hover{
+    background-color: slategrey;
+    cursor: pointer;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}

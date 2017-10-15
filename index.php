@@ -1,9 +1,10 @@
 <html>
 <?php
 include('Conf/init.php');
-include('Includes/header.html');
+include('Conf/header-session.php');
+
 if (isset($_POST['submit'])) {
-//session_start();
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 $login_date = date("Y-m-d H:i:s");
 $target_dir = "Images/ProfilePicture/";
