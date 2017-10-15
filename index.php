@@ -5,11 +5,13 @@ include('Includes/header.html');
 if (isset($_POST['submit'])) {
 //session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+$login_date = date("Y-m-d H:i:s");
 $target_dir = "Images/ProfilePicture/";
 $password = mysqli_real_escape_string($conn,$_POST['password']); 
 $hashedpwd = password_hash($password, PASSWORD_DEFAULT);
 $rowcount=0;
 $username=mysqli_real_escape_string($conn,$_POST['username']); 
+$profile_pic=mysqli_real_escape_string($conn,$_POST['profile_pic']); 
 $sql1 = "SELECT * FROM user WHERE Username='$username'";
 
 if($result=mysqli_query($conn,$sql1))
@@ -28,6 +30,7 @@ if($rowcount==1)
 	window.location.href='###';
 	</script>";
 }else{
+	if ($profile_pic != null){
 	$allowedExts = array("gif", "jpeg", "jpg", "png");
 	$tmp = explode(".", $_FILES["profile_pic"]["name"]);
 	$extension = end($tmp);
@@ -35,24 +38,20 @@ if($rowcount==1)
 		$uploadOk = 1;
 		move_uploaded_file($_FILES["profile_pic"]["tmp_name"], "Images/ProfilePicture/".$username.".".$extension);
 		$file_name = $username.".".$extension;
-		$sql2="INSERT INTO user (Username,Password,Fullname,DOB,Email,Gender,ProfilePicture) VALUES ('$_POST[username]','$hashedpwd','$_POST[fullname]','$_POST[DOB]','$_POST[email]','$_POST[gender]','$file_name')";
+		$sql2="INSERT INTO user (Username,Password,Fullname,DOB,Email,Gender,ProfilePicture, Coin, LastLogin) VALUES ('$_POST[username]','$hashedpwd','$_POST[fullname]','$_POST[DOB]','$_POST[email]','$_POST[gender]','$file_name','20','$login_date')";
 		
 		if(!mysqli_query($conn,$sql2))
 		{
 		die('Error:' .mysqli_error($conn));
 		}
 	
-}}else{
-	$sql="INSERT INTO user (Username,Password,Fullname,DOB,Email,Gender) VALUES ('$_POST[username]','$hashedpwd','$_POST[fullname]','$_POST[DOB]','$_POST[email]','$_POST[gender]')";
+}else{
+	$sql="INSERT INTO user (Username,Password,Fullname,DOB,Email,Gender, Coin, LastLogin) VALUES ('$_POST[username]','$hashedpwd','$_POST[fullname]','$_POST[DOB]','$_POST[email]','$_POST[gender]','20','$login_date')";
 		if(!mysqli_query($conn,$sql))
 		{
 		die('Error:' .mysqli_error($conn));
 		}
-		echo "<script>
-	alert('Register Successful!');
-	window.location.href='index.php';
-	</script>";
-}
+}}}
 }
 
 

@@ -8,26 +8,50 @@ session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST")
 
 {
+function curdate() {
+    return date('Y-m-d');
+}
 // username and password sent from Form
 $username=mysqli_real_escape_string($conn,$_POST['username']);
 $password=mysqli_real_escape_string($conn,$_POST['password']);
-
+$login_date = date("Y-m-d H:i:s");
 $sql="SELECT UserID FROM user WHERE Username='$username'";
 $pwdb = mysqli_query($conn,"SELECT Password FROM user WHERE Username='$username'");
+$last_loginsql = mysqli_query($conn, "SELECT LastLogin, Coin FROM user WHERE Username='$username'");
+while ($last_login = mysqli_fetch_array($last_loginsql)){
+$reward = $last_login['Coin'] + 20;
 $row = mysqli_fetch_array($pwdb);
 if ($result=mysqli_query($conn,$sql))
   {
   // Return the number of rows in result set
   $rowcount=mysqli_num_rows($result);
   }
-mysqli_close($conn);
+//mysqli_close($conn);
 
 if($rowcount==1) {
 	if ($verifypassword = password_verify($password,$row['Password'])){
-		session_start();
-		$_SESSION['Username']=$username;
-		$_SESSION['UID']=$row['UserID'];
-		header('location: /Software-Development-Project/index.php');
+		if ($last_login['LastLogin'] < curdate()){
+			$sql2 = "UPDATE user SET LastLogin='$login_date', Coin='$reward' WHERE Username='test2'";
+			if(!mysqli_query($conn,$sql2))
+			{
+			die('Error:' .mysqli_error($conn));
+			}
+			session_start();
+			$_SESSION['Username']=$username;
+			$_SESSION['UID']=$row['UserID'];
+			header('location: /Software-Development-Project/index.php');
+		} else{
+			session_start();
+			$sql3 = "UPDATE user SET LastLogin='$login_date' WHERE Username='$username'";
+			if(!mysqli_query($conn,$sql3))
+			{
+			die('Error:' .mysqli_error($conn));
+			}
+			session_start();
+			$_SESSION['Username']=$username;
+			$_SESSION['UID']=$row['UserID'];
+			header('location: /Software-Development-Project/index.php');
+		}
 }else{
 	echo "<script>alert('Password incorrect. Please try again.');</script>";
 }
@@ -36,7 +60,7 @@ else {
 
 echo "<script>alert('Username incorrect. Please try again.');</script>";
 
-}}
+}}}
 }
  ?>
 <head>
@@ -55,7 +79,7 @@ echo "<script>alert('Username incorrect. Please try again.');</script>";
 				<input class="username" placeholder="Username..." name="username" type="text" required="required"/><br />
 				<input class="password" placeholder="Password..." name="password" type="password" required="required"/><br />
 				<a href="#">Forget Password</a><br />
-				<input type="submit" name="submit" value="Skip" />
+				<input type="submit" name="submit" value="Submit" />
             </form>
         </div>
     </div>
