@@ -1,0 +1,147 @@
+
+/*FOOTER*/
+
+footer {
+    background-color: black;
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom:0;
+	color: lightgray;
+}
+
+footer .footer-container {
+    width: 70%;
+    float:left;
+    height: auto;
+    margin:none;
+	overflow:hidden;
+	display:block;
+    /border: 2px solid hotpink;
+}
+
+.first-col {
+	display:block;
+    position: relative;
+    float: left;
+    width:auto;
+    height: auto;
+    margin-right:30px;
+	margin-left:5%;
+    padding-top: 40px;
+    /border: 2px solid yellow;
+}
+
+.second-col{
+	display:block;
+    position: relative;
+    float: left;
+    width:auto;
+    height: auto;
+    margin-left:50px;
+    padding-top: 40px;
+    /border: 2px solid orange;
+}
+
+.third-col{
+	display:block;
+    position: relative;
+    float: left;
+    width:300px;
+    height: 180px;
+    margin-left:80px;
+    padding-top: 40px;
+    /border: 2px solid green;
+}
+
+.third-col h4{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 14px;
+    text-align: left;
+    font-weight: 100;
+    line-height: 2.1;
+}
+
+.fourth-col {
+    float: right;
+    height: 180px;
+    width: 30%;
+    /border: 2px solid blue;
+}
+.footer-logo{
+    padding-top: 40px;
+    margin-right: 5%;
+}
+.footer-logo h3, .footer-logo p{
+    text-align: right;
+    color:darkgray;
+}
+.footer-logo h3{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.footer-logo p{
+    font-family: 'Cuprum', sans-serif;
+    font-size: 12px;
+}
+.footer-logo .social-media{
+    height: 50px;
+    float: right;
+    
+}
+.footer-logo .social-media .fa {
+  font-size: 16px;
+  float: left;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 0px;
+  padding:10px;
+  color:lightgray;
+}
+
+.footer-logo .social-media .fa:hover {
+  color: darkcyan;
+}
+
+footer h1 {
+    font-family: 'Titillium Web', sans-serif;
+	font-size: 22px;
+    text-align: left;
+    font-weight: 500;
+    color: lightgray;
+	margin-bottom:0;
+}
+
+footer ul {
+    letter-spacing:0.5px;
+    margin: 0;
+    padding: 0;
+}
+
+footer li {
+	text-align: left;
+    list-style-type: none;
+    line-height:2.1;
+}
+
+footer li a {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 100;
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 14px;
+    color: lightgray;
+}
+
+footer li a:hover {
+    color: darkcyan;
+    text-decoration: none;
+}
+
+
+
+

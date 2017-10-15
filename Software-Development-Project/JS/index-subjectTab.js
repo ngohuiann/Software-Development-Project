@@ -1,4 +1,4 @@
-function openSubject(evt, subjectName) {
+function openSubject(event, subjectName) {
     var i, subjectcontent, subjectlinks;
     subjectcontent = document.getElementsByClassName("subjectcontent");
     for (i = 0; i < subjectcontent.length; i++) {
@@ -9,7 +9,7 @@ function openSubject(evt, subjectName) {
         subjectlinks[i].className = subjectlinks[i].className.replace(" active", "");
     }
     document.getElementById(subjectName).style.display = "block";
-    evt.currentTarget.className += " active";
+    event.currentTarget.className += " active";
 	}
 
 	// Get the element with id="defaultOpen" and click on it
