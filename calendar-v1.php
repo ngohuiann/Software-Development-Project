@@ -38,10 +38,12 @@ for($x = 0; $x < $blank_days; $x++):
 endfor; 
 
 for($day_num = 1; $day_num <= $days_in_month; $day_num++):
-	echo '<td class="days"';
-	echo 'id="';
+	echo '<td class="days" id="';
 	echo $day_num;
-	echo '"><span class="context-menu-one btn btn-neutral">';
+	echo 'day"';
+	echo 'onclick="openTask(event, \'';
+	echo $day_num;
+	echo '\')">';
 		/* add in the day number */
 	echo '<div class="day-num">'.$day_num.'</div>';
 	echo '</td>';
@@ -64,10 +66,89 @@ endif;
 ?>
 			</tr>
         </table>
+		
+		<?php 
+			for($day_num = 1; $day_num <= $days_in_month; $day_num++):
+				echo '<div id="';
+				echo $day_num;
+				echo '" class="taskcontent">';
+				echo '<div class="header">';
+				echo '<h2>';
+				echo $day_num;
+				echo '</h2>';
+				echo '<input type="text" id="the';
+				echo $day_num;
+				echo 'myInput" placeholder="Title...">';
+				echo '<span onclick="the';
+				echo $day_num;
+				echo 'newElement()" class="addBtn">Add</span>';
+				echo '</div>';
+				echo '<ul id="myUL';
+				echo $day_num;
+				echo '">';
+				echo '<li>Hit the gym</li>';
+				echo '<li class="checked">Pay bills</li>';
+				echo '</ul>';
+				echo '</div>';
+			endfor;
+		?>	
+	<script src="Javascript/task-menu.js"></script>
 	<script>
-		var d = new Date();
-		var day = d.getDate();
-		document.getElementById(day).style.backgroundColor  = '#E8EAF6'
+	// Create a "close" button and append it to each list item
+		var myNodelist = document.getElementsByTagName("LI");
+		var i;
+		for (i = 0; i < myNodelist.length; i++) {
+		  var span = document.createElement("SPAN");
+		  var txt = document.createTextNode("\u00D7");
+		  span.className = "close";
+		  span.appendChild(txt);
+		  myNodelist[i].appendChild(span);
+		}
+
+		// Click on a close button to hide the current list item
+		var close = document.getElementsByClassName("close");
+		var i;
+		for (i = 0; i < close.length; i++) {
+		  close[i].onclick = function() {
+			var div = this.parentElement;
+			div.style.display = "none";
+		  }
+		}
+
+		// Add a "checked" symbol when clicking on a list item
+		var list = document.querySelector('ul');
+		list.addEventListener('click', function(ev) {
+		  if (ev.target.tagName === 'LI') {
+			ev.target.classList.toggle('checked');
+		  }
+		}, false);
+
+		// Create a new list item when clicking on the "Add" button
+		function the<?php echo $day_num; ?>newElement() {
+		  var li = document.createElement("li");
+		  var inputValue = document.getElementById("the<?php echo $day_num; ?>myInput").value;
+		  var t = document.createTextNode(inputValue);
+		  li.appendChild(t);
+		  if (inputValue === '') {
+			alert("You must write something!");
+		  } else {
+			document.getElementById("myUL<?php echo $day_num; ?>").appendChild(li);
+		  }
+		  document.getElementById("the<?php echo $day_num; ?>myInput").value = "";
+
+		  var span = document.createElement("SPAN");
+		  var txt = document.createTextNode("\u00D7");
+		  span.className = "close";
+		  span.appendChild(txt);
+		  li.appendChild(span);
+
+		  for (i = 0; i < close.length; i++) {
+			close[i].onclick = function() {
+			  var div = this.parentElement;
+			  div.style.display = "none";
+			}
+		  }
+		} 
 	</script>
     </body>
 </html>
