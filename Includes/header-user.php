@@ -52,7 +52,7 @@ $row=mysqli_fetch_array($result);
 
 	</div>
 	<div class="coins">
-		<img src="Images/coins.svg" width="35px;" style="float:left;"/> 
+		<img src="Images/coins.svg" width="25px; padding-top: 2px;" style="float:left;"/> 
 		<span class="coins_value"><?php echo $row['Coin']; ?></span>
 	</div>
 	<a id="courselink" href="view_all.php">View All Courses</a>
