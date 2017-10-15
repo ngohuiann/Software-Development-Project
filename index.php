@@ -64,7 +64,6 @@ if($rowcount==1)
     <link href="https://fonts.googleapis.com/css?family=Cuprum|Oswald|Overpass Mono|Saira Extra Condensed" rel="stylesheet">
 </head>
 <body>
-	
     <div class="main-header">
         <div class="animationbg">
             <img src="Images/coding1.gif"/>
@@ -73,7 +72,7 @@ if($rowcount==1)
         </div>
         <div class="main">
             <h1>Learn to Code</h1>
-            <h2>on your schedules</h2>
+            <h2>at your own paces</h2>
             <button id="reg-btn" class="get-start">Get Started</button>
             <!-- The Modal -->
 			<div id="regModal" class="modal">

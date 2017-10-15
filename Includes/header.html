@@ -3,7 +3,22 @@
 	<link rel="stylesheet" type="text/css" href="/Software-Development-Project/CSS/body.css" />
 </head>
 <body>
-<div class="topnav">
+	<script>
+        var navTop = $('#subjectbar').offset().top;
+
+        $(window).scroll(function(){
+            if ($(this).scrollTop() >= navTop) {
+                $('#subjectbar').css('position', 'fixed');
+                $('#navi').css('position', 'relative');
+                $('#subjectbar').css('top', '0');
+            } else {
+                $('#subjectbar').css('position', 'absolute');
+                $('#subjectbar').css('top', navTop);
+                $('#navi').css('position', 'fixed');
+            }
+        });
+    </script>
+<div class="topnav" id="navi">
 	  <a style="float:left;" href="index.php" title="Homepage">
 		<img src="Images/logo.png" width="220px" height="60px">
 	  </a>

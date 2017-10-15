@@ -52,3 +52,24 @@
     display: table;
     clear: both;
 }
+
+.row{
+	float:right;
+}
+
+.coins{
+	width: 70px;
+	float:right;
+	margin-top:13px;
+	margin-right: 8px;
+	position: relative;
+}
+
+span.coins_value{
+	height: 35px;
+	font-size: 17px;
+	text-align: center;
+	display: block;
+	font-family: 'Titillium Web', sans-serif;
+	padding-top: 4px;
+}
