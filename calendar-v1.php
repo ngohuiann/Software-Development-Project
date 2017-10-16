@@ -13,7 +13,6 @@
         <link rel="stylesheet" type="text/css" href="CSS/calendar-v1.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="Javascript/context-menu.js"></script>
-
     </head>
 
     <body>
@@ -37,17 +36,10 @@ for($x = 0; $x < $blank_days; $x++):
 	$days_of_week++;
 endfor; 
 
-for($day_num = 1; $day_num <= $days_in_month; $day_num++):
-	echo '<td class="days" id="';
-	echo $day_num;
-	echo 'day"';
-	echo 'onclick="openTask(event, \'';
-	echo $day_num;
-	echo '\')">';
-		/* add in the day number */
-	echo '<div class="day-num">'.$day_num.'</div>';
-	echo '</td>';
-	if($blank_days == 6):
+for($day_num = 1; $day_num <= $days_in_month; $day_num++): ?>
+	<td class="days" id="<?php echo $day_num; ?>days" onclick="openTask(event,'<?php	echo $day_num; ?>')" >
+	<div class="day-num"><?php echo $day_num ?></div></td>
+	<?php if($blank_days == 6):
 		echo '</tr>';
 		if(($day_counter+1) != $days_in_month):
 			echo '<tr>';
@@ -68,30 +60,19 @@ endif;
         </table>
 		
 		<?php 
-			for($day_num = 1; $day_num <= $days_in_month; $day_num++):
-				echo '<div id="';
-				echo $day_num;
-				echo '" class="taskcontent">';
-				echo '<div class="header">';
-				echo '<h2>';
-				echo $day_num;
-				echo '</h2>';
-				echo '<input type="text" id="the';
-				echo $day_num;
-				echo 'myInput" placeholder="Title...">';
-				echo '<span onclick="the';
-				echo $day_num;
-				echo 'newElement()" class="addBtn">Add</span>';
-				echo '</div>';
-				echo '<ul id="myUL';
-				echo $day_num;
-				echo '">';
-				echo '<li>Hit the gym</li>';
-				echo '<li class="checked">Pay bills</li>';
-				echo '</ul>';
-				echo '</div>';
-			endfor;
-		?>	
+			for($day_num = 1; $day_num <= $days_in_month; $day_num++): ?>
+			<div id="<?php echo $day_num; ?>" class="taskcontent">';
+			<div class="header">
+				<h2><?php echo $day_num; ?></h2>
+				<input type="text" id="the<?php echo $day_num; ?>myInput" placeholder="Title...">
+				<span onclick="thenewElement()" class="addBtn">Add</span>
+			</div>';
+			<ul id="myUL<?php echo $day_num; ?>">
+				<li id="li<?php echo $day_num; ?>">Hit the gym</li>
+				<li id="li<?php echo $day_num; ?>" class="checked">Pay bills</li>
+			</ul>
+			</div>
+
 	<script src="Javascript/task-menu.js"></script>
 	<script>
 	// Create a "close" button and append it to each list item
@@ -124,6 +105,7 @@ endif;
 		}, false);
 
 		// Create a new list item when clicking on the "Add" button
+		//var selected_dates = document.getElementById("");
 		function the<?php echo $day_num; ?>newElement() {
 		  var li = document.createElement("li");
 		  var inputValue = document.getElementById("the<?php echo $day_num; ?>myInput").value;
@@ -149,6 +131,7 @@ endif;
 			}
 		  }
 		} 
+		<?php endfor; ?>
 	</script>
     </body>
 </html>

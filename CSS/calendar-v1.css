@@ -3,7 +3,7 @@
 }
 
 .my-calender{
-    width: 60%;
+    width: 65%;
     float: left;
 	margin: 5px;
 }
@@ -64,7 +64,7 @@ td.active {
 	width: 30%;
 	height: 400px;
 	float: left;
-	margin: 5px;
+	margin: 5px 5px 5px 10px;
 	display: none;
 }
 
@@ -176,3 +176,4 @@ input {
 .addBtn:hover {
     background-color: #bbb;
 }
+
