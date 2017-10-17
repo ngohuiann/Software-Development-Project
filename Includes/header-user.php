@@ -1,4 +1,5 @@
 <?php 
+include('Conf/init.php');
 $UID = $_SESSION['UID'];
 $Username = $_SESSION['Username'];
 $result = mysqli_query($conn,"SELECT * FROM user WHERE UserID='$UID'");
@@ -37,7 +38,7 @@ $row=mysqli_fetch_array($result);
 		<button class="user-menu-btn" id="loginlink"><?php echo $Username; ?></button>
 		<div class="dropdown dropdown-content">
             <div class="row">
-                <a href="#"><div class="column"><img src="Images/ProfilePicture/<?php echo $row['ProfilePicture']; ?>" style="border-radius: 50%;" width="60px"/><br />My profile</div></a>
+                <a href="#"><div class="column"><img src="Images/ProfilePicture/<?php echo $row['ProfilePicture']; ?>" style="border-radius: 50%;" width="60px" height="60px" /><br />My profile</div></a>
                 <a href="#"><div class="column"><img src="Images/progress.svg" width="60px"/><br />Progress</div></a>
             </div> 
             <div class="row" style="margin-top: 10px;">

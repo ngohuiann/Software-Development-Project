@@ -7,15 +7,10 @@ if (isset($_POST['submit'])) {
 session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-function curdate() {
-    return date('Y-m-d');
-}
 $datebefore = date('Y-m-d',strtotime('yesterday'));
-$current_date = date('d');
-$current_month = date('m');	
-$current_year = date('Y');	
-$issuedate = $current_year . "-" . $current_month . "-" . $current_date;
-$result1 = mysqli_query($conn,"SELECT ChallengeID FROM challenge WHERE IssueDate = '$issuedate'");
+// Retrieve current date and set as login date
+$login_date = date("Y-m-d");
+$result1 = mysqli_query($conn,"SELECT ChallengeID FROM challenge WHERE IssueDate = '$login_date'");
 	if (!$result1) {	
 	printf("Error: %s\n", mysqli_error($conn));
 	exit();	
@@ -25,8 +20,7 @@ $chaID = $row1['ChallengeID'];
 $username=mysqli_real_escape_string($conn,$_POST['username']);
 $password=mysqli_real_escape_string($conn,$_POST['password']);
 
-// Retrieve current date and set as login date
-$login_date = date("Y-m-d");
+
 $sql="SELECT UserID FROM user WHERE Username='$username' ";
 $pwdb = mysqli_query($conn,"SELECT UserID, Password, Identity FROM user WHERE Username='$username'");
 $row = mysqli_fetch_array($pwdb);
@@ -53,18 +47,18 @@ if ($result=mysqli_query($conn,$sql))
   // Return the number of rows in result set
   $rowcount=mysqli_num_rows($result);
   }
-mysqli_close($conn);
+//mysqli_close($conn);
 if($rowcount==1) {
 	// Decrypt password hash and verify from database
 	if ($verifypassword = password_verify($password,$row['Password'])){
 		// if last login not today
-		if ($last_login['LastLogin'] < curdate()){
+		if ($last_login['LastLogin'] < $login_date){
 			$sql4 = "INSERT INTO challengestatus (ChallengeID,UserID) VALUES ('$chaID', '$userID')";			
 			if(!mysqli_query($conn, $sql4))			
 			{			
 				die('Error:' .mysqli_error($conn));			
 			}
-		
+		}
 			if ($last_login['ConsecutiveLogin'] == 0){
 				session_start();
 				$sql3 = "UPDATE user SET LastLogin='$login_date' WHERE Username='$username'";
@@ -88,7 +82,7 @@ if($rowcount==1) {
 				$_SESSION['UID']=$row['UserID'];
 				header('location: /sdp/index.php');
 		}
-	} else {
+	 if ($last_login['LastLogin'] == $login_date) {
 		session_start();
 		$_SESSION['Username']=$username;
 		$_SESSION['userLevel']=$identity;

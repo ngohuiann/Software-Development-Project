@@ -1,7 +1,7 @@
 <html>
 <head>
 <?php 
-include('../Conf/init.php');
+include('Conf/init.php');
 session_start();
 $UID = $_SESSION['UID'];
 $current_date = date('d');
@@ -9,11 +9,11 @@ $current_month = date('M');
 $curmonth = date('m');
 $current_year = date('Y');
 $dates = $current_month . " " . $current_date . ", " . $current_year;
-$issuedate = $current_year . "-" . $curmonth . "-" . $current_date;
+$currentdate = date("Y-m-d");
 
-$chaquestion = mysqli_query($conn,"SELECT * FROM challengequestion INNER JOIN challenge ON challengequestion.ChaQuestionID = challenge.ChaQuestionID WHERE challenge.IssueDate = '$issuedate'");
+$chaquestion = mysqli_query($conn,"SELECT * FROM challengequestion INNER JOIN challenge ON challengequestion.ChaQuestionID = challenge.ChaQuestionID WHERE challenge.IssueDate = '$currentdate'");
 $challengequestion=mysqli_fetch_array($chaquestion);
-$chastatus = mysqli_query($conn,"SELECT * FROM challenge INNER JOIN challengestatus ON challenge.ChallengeID = challengestatus.ChallengeID WHERE challenge.IssueDate = '$issuedate' AND challengestatus.UserID = '$UID'");
+$chastatus = mysqli_query($conn,"SELECT * FROM challenge INNER JOIN challengestatus ON challenge.ChallengeID = challengestatus.ChallengeID WHERE challenge.IssueDate = '$currentdate' AND challengestatus.UserID = '$UID'");
 $challengestatus=mysqli_fetch_array($chastatus);
 ?>
     <link rel="stylesheet" type="text/css" href="CSS/daily-challenge.css"/>
