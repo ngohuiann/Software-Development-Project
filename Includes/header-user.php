@@ -6,9 +6,9 @@ $row=mysqli_fetch_array($result);
 ?>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="/Software-Development-Project/CSS/header.css" />
-	<link rel="stylesheet" type="text/css" href="/Software-Development-Project/CSS/body.css" />
-	<link rel="stylesheet" type="text/css" href="/Software-Development-Project/CSS/header-user.css" />
+    <link rel="stylesheet" type="text/css" href="/sdp/CSS/header.css" />
+	<link rel="stylesheet" type="text/css" href="/sdp/CSS/body.css" />
+	<link rel="stylesheet" type="text/css" href="/sdp/CSS/header-user.css" />
 </head>
 <body>
 <div class="topnav">
@@ -41,7 +41,7 @@ $row=mysqli_fetch_array($result);
                 <a href="#"><div class="column"><img src="Images/progress.svg" width="60px"/><br />Progress</div></a>
             </div> 
             <div class="row" style="margin-top: 10px;">
-                <a href="#"><div class="column"><img src="Images/calendar.svg" width="50px"/><br />Schedule</div></a>
+                <a href="Functions/calendar.php"><div class="column"><img src="Images/calendar.svg" width="50px"/><br />Schedule</div></a>
                 <a href="#"><div class="column"><img src="Images/trophy.svg" width="50px"/><br />Achievement</div></a>
             </div> 
             <div class="row" style="margin-top: 10px;">

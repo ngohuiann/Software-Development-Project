@@ -1,0 +1,62 @@
+    <div class="main-header">
+        <div class="animationbg">
+            <img src="Images/coding1.gif"/>
+        </div>
+        <div id="shadow">
+        </div>
+        <div class="main">
+            <h1>Learn to Code</h1>
+            <h2>at your own paces</h2>
+            <button id="reg-btn" class="get-start">Get Started</button>
+            <!-- The Modal -->
+			<div id="regModal" class="modal">
+			  <!-- Modal content -->
+				<div class="modal-content">
+					<form id="regForm" method="post" action="Functions/register.php" enctype="multipart/form-data">
+					<!-- One "tab" for each step in the form: -->
+					<div class="tab">
+					<img src="Images/reg-icon.png" style="text-align: center; margin: 0; width: 100px;" />
+					<h2>Sign Up</h2>
+					Username:
+					  <input placeholder="Username..." name="username" type="text" required="required"/>
+					  Password: 
+					  <input placeholder="Password..." name="password" type="password" required="required"/>
+					  <a href="login.php" style="float: left; margin-top: 30px;">Already own an account?</a>
+					  <input type="button" value="Next" id="nextBtn" onclick="nextPrev(1)" style="overflow:auto; margin-top: 30px; float: right;" ></input>
+					</div>
+
+					<div class="tab"><h3>2. Basic Info</h3>
+					Full Name
+					  <input placeholder="Full name..." name="fullname" required="required"/>
+					Gender<br />
+						<select name="gender" required="required">
+							<option value="">Please select</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						</select><br />
+					DOB
+					  <input name="DOB" type="date" required="required" />
+					Email Address
+					  <input placeholder="Email..." name="email" type="email" required="required"/>
+					  
+					  <input type="button" id="prevBtn" value="Previous" onclick="nextPrev(-1)" style="overflow:auto; margin-top: 30px; float: right;" ></input>
+					  <input type="button" id="nextBtn" value="Submit" onclick="nextPrev(1)" style="overflow:auto; margin-top: 30px; float: right;" ></input>
+					</div>
+
+					<div class="tab"><h3>3. Upload a profile picture</h3>
+						<img src="Images/ProfilePicture/default-profile.png" style="width: 150px; padding: 20px; margin: 15px; border-radius: 50%; border: 1px solid black;" />
+					  <input type="file" name="profile_pic" />
+					  <input type="submit" name="submit" value="Skip" style="overflow:auto; margin-top: 30px; float: right;" />
+					</div>
+
+					<!-- Circles which indicates the steps of the form: -->
+					<div style="text-align:center;margin-top:40px;">
+					  <span class="step"></span>
+					  <span class="step"></span>
+					  <span class="step"></span>
+					</div>
+					</form> 
+				</div>
+			</div>
+        </div>
+    </div>

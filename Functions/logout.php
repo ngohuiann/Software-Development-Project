@@ -1,5 +1,5 @@
 <?php 
 session_start();
-header("location: /Software-Development-Project/index.php");
+header("location: /sdp/index.php");
 session_destroy();
 ?>

@@ -1,0 +1,14 @@
+.daily-challenge{
+    width:80%;
+    border: 1px solid black;
+    height: 500px;
+    margin: 10% auto;
+	padding: 20px;
+}
+
+.challenge-content{
+	width:80%;
+	height: 380px;
+	margin: 0 auto;
+	border: 1px solid black;
+}
