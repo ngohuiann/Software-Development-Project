@@ -27,6 +27,7 @@ $row = mysqli_fetch_array($pwdb);
 // Check user identity
 $identity = $row['Identity'];
 $userID = $row['UserID'];
+
 // Get user's last login date
 $last_loginsql = mysqli_query($conn, "SELECT LastLogin, Coin, ConsecutiveLogin FROM user WHERE Username='$username'");
 $last_login = mysqli_fetch_array($last_loginsql);
@@ -39,7 +40,7 @@ $last_login = mysqli_fetch_array($last_loginsql);
 	} elseif ($last_login['ConsecutiveLogin'] >= 4){
 		$reward = $last_login['Coin'] + 20;
 	} 
-	$ConLogin = $last_login['ConsecutiveLogin'] + 1;
+$ConLogin = $last_login['ConsecutiveLogin'] + 1;
 	
 
 if ($result=mysqli_query($conn,$sql))
@@ -59,35 +60,39 @@ if($rowcount==1) {
 				die('Error:' .mysqli_error($conn));			
 			}
 		}
-			if ($last_login['ConsecutiveLogin'] == 0){
-				session_start();
-				$sql3 = "UPDATE user SET LastLogin='$login_date' WHERE Username='$username'";
-				if(!mysqli_query($conn,$sql3))
-				{
+		if ($last_login['LastLogin'] == $login_date) {
+			session_start();
+			$_SESSION['Username']=$username;
+			$_SESSION['userLevel']=$identity;
+			$_SESSION['UID']=$row['UserID'];
+			$_SESSION['ChallengeID']=$chaID;
+			header('location: /sdp/index.php');
+		} else {
+		if ($last_login['ConsecutiveLogin'] == 0){
+			session_start();
+			$sql3 = "UPDATE user SET LastLogin='$login_date', ConsecutiveLogin='$ConLogin' WHERE Username='$username'";
+			if(!mysqli_query($conn,$sql3))
+			{
 				die('Error:' .mysqli_error($conn));
-				}
-				$_SESSION['Username']=$username;
-				$_SESSION['userLevel']=$identity;
-				$_SESSION['UID']=$row['UserID'];
-				header('location: /sdp/index.php');
-			} else{
-				session_start();
-				$sql2 = "UPDATE user SET LastLogin='$login_date', Coin='$reward', ConsecutiveLogin='$ConLogin' WHERE Username='$username'";
-				if(!mysqli_query($conn,$sql2))
-				{
+			}
+			$_SESSION['Username']=$username;
+			$_SESSION['userLevel']=$identity;
+			$_SESSION['UID']=$row['UserID'];
+			$_SESSION['ChallengeID']=$chaID;
+			header('location: /sdp/index.php');
+		} else{
+			session_start();
+			$sql2 = "UPDATE user SET LastLogin='$login_date', Coin='$reward', ConsecutiveLogin='$ConLogin' WHERE Username='$username'";
+			if(!mysqli_query($conn,$sql2))
+			{
 				die('Error:' .mysqli_error($conn));
-				}
-				$_SESSION['Username']=$username;
-				$_SESSION['userLevel']=$identity;
-				$_SESSION['UID']=$row['UserID'];
-				header('location: /sdp/index.php');
+			}
+			$_SESSION['Username']=$username;
+			$_SESSION['userLevel']=$identity;
+			$_SESSION['UID']=$row['UserID'];
+			$_SESSION['ChallengeID']=$chaID;
+			header('location: /sdp/index.php');
 		}
-	 if ($last_login['LastLogin'] == $login_date) {
-		session_start();
-		$_SESSION['Username']=$username;
-		$_SESSION['userLevel']=$identity;
-		$_SESSION['UID']=$row['UserID'];
-		header('location: /sdp/index.php');
 	}}else{
 	echo "<script>
 	alert('Password incorrect. Please try again.');
