@@ -24,7 +24,7 @@ $challengestatus=mysqli_fetch_array($chastatus);
         <h1>Daily Challenge:</h1>
 		<div class="challenge-content">
 		<h1><?php echo $challengequestion['ChallengeQuestion']; ?></h1>
-		<h1><?php echo $challengestatus['Status']; ?></h1>
+		<progress value="<?php echo $challengestatus['Status'];?>" max="<?php echo $challengequestion['ChallengeAnswer'];?>"></progress>
 		</div>
 		<p id="demo" onload="clock()" style="font-size:30px"></p>
     </div>

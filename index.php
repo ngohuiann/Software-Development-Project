@@ -1,15 +1,16 @@
 <html>
 <?php 
-
 include('Conf/header-session.php');
 include('Conf/body-session.php');
-
 ?>
 <head>
     <link rel="stylesheet" type="text/css" href="/sdp/CSS/index.css"/>
+	<link rel="stylesheet" type="text/css" href="/sdp/CSS/index-reg.css"/>
+    <link rel="stylesheet" type="text/css" href="/sdp/CSS/index-file.css"/>
+    <link rel="stylesheet" type="text/css" href="/sdp/CSS/index-subjectbar.css"/>
 	<link href="https://fonts.googleapis.com/css?family=Dosis|Titillium Web" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cuprum|Oswald|Overpass Mono|Saira Extra Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cuprum|Raleway|Dosis|Titillium+Web|Oswald|Montserrat|Overpass+Mono|Roboto+Condensed|Saira+Extra+Condensed" rel="stylesheet">
 </head>
 <body>
     <div class="course-desc" id="subjectbar">

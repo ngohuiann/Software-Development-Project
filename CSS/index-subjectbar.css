@@ -1,0 +1,167 @@
+
+/* Content subject ---2 */
+.course-desc{
+    height: auto;
+}
+
+div.subject-tab {
+    overflow: hidden;
+    background-color: transparent;
+    width: 45%;
+    margin: 0 auto;
+    padding-top: 6px;
+}
+
+div.subject-tab button {
+    background-color: inherit;
+    cursor: pointer;
+    padding: 14px 0 14px 0;
+    transition: 0.3s;
+    font-size: 20px;
+    font-family: monospace;
+    color: white;
+    font-weight: 500;
+    margin: none;
+    border:none;
+    outline: none;
+	width:33.2%;
+}
+
+div.subject-tab button span{
+    color: transparent;
+}
+
+.htmltab{
+    float: left;
+}
+
+.csstab{
+    float: left;
+}
+
+.javascripttab{
+    float: left;
+}
+
+/* Change background color of buttons on hover */
+div.subject-tab button:hover span{
+    color: darkcyan;
+    font-weight: bolder;
+}
+
+/* Create an active/current tablink class */
+div.subject-tab button.active span{
+    /background-color: #ccc;
+    /border-bottom: 2px solid red;
+    color:white;
+}
+
+div.subject-tab button.active{
+    color: #0ddddd;
+    font-weight: 100;
+}
+
+/* Style the tab content */
+.subjectcontent {
+    display: none;
+    padding: 6px 12px;
+    /border: 1px solid #ccc;
+    border-top: none;
+    background: whitesmoke;
+    height: 300px;
+}
+
+.container{
+    /border:1px solid blue;
+    padding: 20px;
+}
+.moduletitle{
+    /border-bottom: 1px solid #A9AAAD;
+    width: 55%;
+    margin: auto;
+    margin-bottom: 15px;
+    overflow: hidden;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#HTML .moduletitle h3{
+    text-align: left;
+    padding: 16px 16px;
+    color: black;
+    font-size: 20px;
+    font-weight: lighter;
+    border: 1px solid navy;
+    border-left: 8px solid navy;
+}
+
+#HTML #showall{
+    padding: 12px;
+    outline: none;
+    border:none;
+    background-color: navy;
+    float:right;
+    margin-right:22.5%;
+    text-decoration: none;
+    color:white;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#CSS .moduletitle h3{
+    text-align: left;
+    padding: 16px 16px;
+    color: black;
+    font-size: 20px;
+    font-weight: lighter;
+    border: 1px solid maroon;
+    border-left: 8px solid maroon;
+}
+
+#CSS #showall{
+    padding: 12px;
+    outline: none;
+    border:none;
+    background-color: maroon;
+    float:right;
+    margin-right:22.5%;
+    text-decoration: none;
+    color:white;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#Javascript .moduletitle h3{
+    text-align: left;
+    padding: 16px 16px;
+    color: black;
+    font-size: 20px;
+    font-weight: lighter;
+    border: 1px solid seagreen;
+    border-left: 8px solid seagreen;
+}
+
+#Javascript #showall{
+    padding: 12px;
+    outline: none;
+    border:none;
+    background-color: seagreen;
+    float:right;
+    margin-right:22.5%;
+    text-decoration: none;
+    color:white;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#HTML .moduletitle:hover h3,#CSS .moduletitle:hover h3,#Javascript .moduletitle:hover h3{
+    /background-color:darkcyan;
+    color:darkcyan;
+    cursor: pointer;
+    border:1px solid darkcyan;
+    /border-bottom:1px solid darkcyan;
+    border-left: 20px solid darkcyan;
+    transition: 0.5s;
+    visibility: visible;
+}
+
+#HTML #showall:hover, #CSS #showall:hover, #Javascript #showall:hover{
+    background: darkcyan;
+    transition: 0.2s;
+}

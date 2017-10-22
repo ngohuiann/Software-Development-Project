@@ -109,23 +109,39 @@ echo "<script>
 <head>
     <link rel="stylesheet" type="text/css" href="CSS/body.css" />
     <link rel="stylesheet" type="text/css" href="CSS/login.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Cuprum|Raleway|Dosis|Titillium+Web|Oswald|Montserrat|Overpass+Mono|Roboto+Condensed|Saira+Extra+Condensed" rel="stylesheet">
 </head>
 <body>
+<div class="op">
     <div class="login-bar">
         <div class="login-desc">
-            <h2>Welcome back to CodeCube</h2>
-            <h3>Unreadable text here.</h3>
+            <h2>Welcome back to <br/>CodeCube</h2>
+            <h3>Don't own an account yet? <br/>Create an account in <a href="index.php">homepage</a> now.</h3>
         </div>
         <div class="login-form">
-            <form action="" method="post" >
-				<input class="username" placeholder="Username..." name="username" type="text" required="required"/><br />
-				<input class="password" placeholder="Password..." name="password" type="password" required="required"/><br />
-				<a href="#">Forget Password</a><br />
-				<input type="submit" name="submit" value="Submit" />
-            </form>
-        </div>
-    </div>
+        <form action="" method="post" >
+			<div class="login">
+            <div class="login-head">
+				<h1>Login</h1>
+			</div>
+            <div class="style-input">
+				<i class="fa fa-user"></i>
+				<input type="text" placeholder="Username" name="username" required />
+			</div>
+            <div class="style-input">
+				<span class="fa fa-lock"></span>
+				<input placeholder="Password" name="password" type="password" required="required"/>
+			</div>
+            <div class="style-input">
+				<input type="submit" name="submit" value="Login"/></td>
+				<a id="ady" href="#">Forget Password?</a>
+			</div>
+			</div>
+        </form>
+		</div>
+	</div>
+</div>
 </body>
 <?php 
 include("Includes/footer.html");

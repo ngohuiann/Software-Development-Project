@@ -15,42 +15,96 @@
 					<form id="regForm" method="post" action="Functions/register.php" enctype="multipart/form-data">
 					<!-- One "tab" for each step in the form: -->
 					<div class="tab">
-					<img src="Images/reg-icon.png" style="text-align: center; margin: 0; width: 100px;" />
+					<img src="https://d30y9cdsu7xlg0.cloudfront.net/png/778862-200.png" style="text-align: center; margin: 0; width: 100px;" />
 					<h2>Sign Up</h2>
-					Username:
-					  <input placeholder="Username..." name="username" type="text" required="required"/>
-					  Password: 
-					  <input placeholder="Password..." name="password" type="password" required="required"/>
-					  <a href="login.php" style="float: left; margin-top: 30px;">Already own an account?</a>
-					  <input type="button" value="Next" id="nextBtn" onclick="nextPrev(1)" style="overflow:auto; margin-top: 30px; float: right;" ></input>
+					<div class="first">
+					<h3>1. Login Details</h3>
+					<div class="style-input">
+						<i class="fa fa-user"></i>
+						<input type="text" placeholder="Username" name="username" required />
+					</div>
+					<div class="style-input">
+						<span class="fa fa-lock"></span>
+						<input placeholder="Password" name="password" type="password" required />
+					</div>
+					<div class="style-input">
+					  <a id="ady" href="login.php">Already own an account?</a>
+					  <input type="button" value="Continue" id="nextBtn" class="nextbtn" onclick="nextPrev(1)" ></input>
+					</div>
+					</div>
 					</div>
 
-					<div class="tab"><h3>2. Basic Info</h3>
-					Full Name
-					  <input placeholder="Full name..." name="fullname" required="required"/>
-					Gender<br />
-						<select name="gender" required="required">
-							<option value="">Please select</option>
-							<option value="Male">Male</option>
-							<option value="Female">Female</option>
-						</select><br />
-					DOB
-					  <input name="DOB" type="date" required="required" />
-					Email Address
-					  <input placeholder="Email..." name="email" type="email" required="required"/>
+					<div class="tab">
+					<div class="second">
+					<h3>2. Profile Settings</h3>
+					  <input placeholder="Full name..." name="fullname" type="text" required="required"/>
+					<div class="radio-group">
+                        <input type="radio" required id="female" name="gender"><label for="female">Female</label><input type="radio" id="male" name="gender"><label for="male">Male</label><input type="radio" id="others" name="gender"><label for="others">Others</label>
+                    </div>
+					  <input name="DOB" required type="date" placeholder="dd/mm/yyyy" id="dob"/>
+					  <!-- Date of Birth cannot be beyond over today's date -->
+								<script>
+								var today = new Date();
+								var dd = today.getDate();
+								var mm = today.getMonth()+1; //January is 0!
+								var yyyy = today.getFullYear();
+								 if(dd<10){
+										dd='0'+dd
+									} 
+									if(mm<10){
+										mm='0'+mm
+									} 
+
+								today = yyyy+'-'+mm+'-'+dd;
+								/* tomorrow = today().getTime() + 24 * 60 * 60 * 1000; */
+								document.getElementById("dob").setAttribute("max", today);
+								</script>
+					  <input placeholder="Email..." name="email" type="email" required="required"/><br/>
+					  <div class="square"><input type="checkbox" id="tnc" name="check" required />
+					  <label id="square">&nbsp;&nbsp;I agree to <a>Terms of Use</a> and <a>Privacy Policy</a></label></div>
 					  
-					  <input type="button" id="prevBtn" value="Previous" onclick="nextPrev(-1)" style="overflow:auto; margin-top: 30px; float: right;" ></input>
-					  <input type="button" id="nextBtn" value="Submit" onclick="nextPrev(1)" style="overflow:auto; margin-top: 30px; float: right;" ></input>
+					  <input type="button" id="prevBtn" value="Back" onclick="nextPrev(-1)" style="overflow:auto; margin-top: 30px;" ></input>
+					  <input type="button" id="nextBtn" value="Continue" onclick="nextPrev(1)" style="overflow:auto; margin-top: 30px; float: right;" ></input>
 					</div>
+					</div>
+				<script>
+                    var inputs = document.querySelectorAll( '.inputfile' );
+                    Array.prototype.forEach.call( inputs, function( input )
+                    {
+                        var label = input.nextElementSibling,
+                                    labelVal = label.innerHTML;
 
-					<div class="tab"><h3>3. Upload a profile picture</h3>
-						<img src="Images/ProfilePicture/default-profile.png" style="width: 150px; padding: 20px; margin: 15px; border-radius: 50%; border: 1px solid black;" />
-					  <input type="file" name="profile_pic" />
-					  <input type="submit" name="submit" value="Skip" style="overflow:auto; margin-top: 30px; float: right;" />
+                        input.addEventListener( 'change', function( e )
+                        {
+                            var fileName = '';
+                            if( this.files && this.files.length > 1 )
+                            fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+                            else
+                                fileName = e.target.value.split( '\\' ).pop();
+
+                            if( fileName )
+                                label.querySelector( 'span' ).innerHTML = fileName;
+                            else
+                                label.innerHTML = labelVal;
+                        });
+                    });
+                </script>
+					<div class="tab">
+					<div class="third">
+					<h3>3. Set a Profile Picture (Optional)</h3>
+						<div style="width:100%;"><img src="https://d30y9cdsu7xlg0.cloudfront.net/png/697829-200.png" style="width: 180px; padding: 20px; border-radius: 50%; border: none;" />
+						</div>
+						<div style="width:100%;">
+					  <input type="file" name="profile_pic" id="file" class="inputfile" />
+					  <label for="file">Upload A Picture</label></div>
+					  <div style="width:100%; margin-top:33px;">
+					  <input type="button" id="prevBtn" value="Back" onclick="nextPrev(-1)">
+					  <input type="submit" name="submit" id="nextBtn" value="Done" style="overflow:auto;  float: right;" /></div>
+					</div>
 					</div>
 
 					<!-- Circles which indicates the steps of the form: -->
-					<div style="text-align:center;margin-top:40px;">
+					<div style="text-align:center;position:absolute;width:100%; bottom:40px;">
 					  <span class="step"></span>
 					  <span class="step"></span>
 					  <span class="step"></span>
