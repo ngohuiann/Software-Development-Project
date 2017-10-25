@@ -5,7 +5,7 @@
 .my-calender{
     width: 70%;
     float: left;
-	margin: 5px;
+	margin-top: 5px;
 }
 
 table{
@@ -61,10 +61,11 @@ td.active {
 /* TASK MENU */
 .taskcontent{
 	border: 1px solid black;
-	width: 25%;
+	width: 28.4%;
 	height: 400px;
 	float: left;
-	margin: 5px 5px 5px 20px;
+	margin-top: 5px;
+	margin-left: 20px;
     display: none;
 	padding: 20px;
 }
@@ -79,28 +80,24 @@ td.active {
     float: right;
 }
 
-button.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-button.accordion.active, button.accordion:hover {
-    background-color: #ccc;
-}
-
 /* Style the accordion panel. Note: hidden by default */
 div.panel {
-    padding: 0 18px;
-    background-color: white;
-    display: none;
+	width: 100%;
+    display: block;
+	padding-top: 5px;
+}
+
+.schedule-items{
+	background-color: #E3F2FD;
+	border: 0;
+	width: 100%;
+	padding: 5px 10px;
+	margin: 1px;
+}
+
+.schedule-items:hover{
+	background-color: #BBDEFB;
+	cursor: pointer;
 }
 
  /* The Modal (background) */
@@ -140,3 +137,16 @@ div.panel {
     text-decoration: none;
     cursor: pointer;
 } 
+
+.wrap-task{
+	width: 95%;
+	margin: 0 auto;
+}
+
+.task-menu{
+	float: left;
+	width: 95%;
+	margin: 20px;
+	border: 1px solid red;
+	height: 200px;
+}

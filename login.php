@@ -70,7 +70,7 @@ if($rowcount==1) {
 		} else {
 		if ($last_login['ConsecutiveLogin'] == 0){
 			session_start();
-			$sql3 = "UPDATE user SET LastLogin='$login_date', ConsecutiveLogin='$ConLogin' WHERE Username='$username'";
+			$sql3 = "UPDATE user SET LastLogin='$login_date', ConsecutiveLogin='$ConLogin'，Coin='$reward' WHERE Username='$username'";
 			if(!mysqli_query($conn,$sql3))
 			{
 				die('Error:' .mysqli_error($conn));

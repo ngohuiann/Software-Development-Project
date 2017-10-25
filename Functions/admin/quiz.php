@@ -2,27 +2,20 @@
 <?php
 include('../../Conf/init.php');
 if(isset($_POST)==true && empty($_POST)==false){ 
-	$question = $_POST['question'];
-	$opt1 = $_POST['opt1'];
-	$opt2 = $_POST['opt2'];
-	$opt3 = $_POST['opt3'];
-	$opt4 = $_POST['opt4'];
-	$answer = $_POST['answer'];
-    for ($i = 0; $i < count($question); $i++) {
 
-        $question = mysqli_real_escape_string($conn,$question[$i]);
-        $opt1 = mysqli_real_escape_string($conn,$opt1[$i]);
-		$opt2 = mysqli_real_escape_string($conn,$opt2[$i]);
-		$opt3 = mysqli_real_escape_string($conn,$opt3[$i]);
-		$opt4 = mysqli_real_escape_string($conn,$opt4[$i]);
-		$answer = mysqli_real_escape_string($conn,$answer[$i]);
-		
-		$sql3="INSERT INTO quiz (ModuleID,QuizQuestion,Opt1,Opt2,Opt3,Opt4,Answer) VALUES ('21','$question','$opt1','$opt2','$opt3','$opt4','$answer')";
-		if(!mysqli_query($conn,$sql3))
+$question = $_POST['question'];
+$opt1 = $_POST['opt1'];
+$opt2 = $_POST['opt2'];
+$opt3 = $_POST['opt3'];
+$opt4 = $_POST['opt4'];
+$answer = $_POST['answer'];
+$arrlength=count($question);
+for($x=0;$x<$arrlength;$x++){
+	$sql[$x]="INSERT INTO quiz (ModuleID, QuizQuestion, Opt1, Opt2, Opt3, Opt4, Answer) VALUES ('21','$question[$x]','$opt1[$x]','$opt2[$x]','$opt3[$x]','$opt4[$x]','$answer[$x]')";
+	if(!mysqli_query($conn,$sql[$x]))
 		{
 			die('Error:' .mysqli_error($conn));
 		}
-	$i++;
 }
 }			
 
